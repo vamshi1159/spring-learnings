@@ -1,0 +1,9 @@
+/.metadata/
+**/Servers/
+**/lib
+**/.classpath
+**/bin/
+**/.project
+**/.settings/
+*/.gitignore
+
