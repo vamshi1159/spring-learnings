@@ -8,7 +8,27 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
   
 	<!-- Define your beans here -->
+	<bean id="myFortune" 
+		class="com.inversion.of.control.HappyFortuneService"
+	></bean>
+	
 	<bean id="theCoach" 
+		class="com.inversion.of.control.BaseballCoach">
+		<!-- set up construction injection -->
+		<constructor-arg ref="myFortune"></constructor-arg>
+	</bean>
+	
+	<bean id="baseBallCoach"
 		class="com.inversion.of.control.TrackCoach">
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myFortune"/>
+	</bean>
+	
+	<bean id="cricketCoach"
+		class="com.inversion.of.control.CricketCoach">
+		<!-- set up setter injection -->
+		<property name="fortuneService" ref="myFortune"/>
+		<property name="emailAddress" value="thebestcoach@m.com"/>
+		<property name="team" value="sunrisers hyd"/>	
 	</bean>
 </beans>
